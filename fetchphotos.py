@@ -1,105 +1,94 @@
 import sys
 import os
 import urllib
+import urllib2
 from StringIO import StringIO
 from fivehundred import *
-import re
+import json
 
 CONSUMER_KEY = '7ok4JQfbUoVaXlcZXRM7soSG6TlC97XnLSZMiB0j'
 def main():
     # global PHOTOS
-    pl = getpx()
+    pl = getpx('san francisco')
     sfw = sfw_screen(pl)
-    top10 = top_10(sfw)
-    top_name = top_url(top10)
-    front_end_output(top_name,pl)
+    top_list = top_px(sfw,25)
+    top_name = top_url(top_list)
+    fe = front_end_output(top_name,pl)
 
-# def getcities():
-    
+# def getcities(city_string):
 
-
-def getpx():
+def getpx(city_name):
     photolist = []
-    api = FiveHundredPx(CONSUMER_KEY)
-    photos = api.get_photos(feature='popular',limit=50)
-    # print "getpx()", photos
-    # return photos
+
+    url = "https://api.500px.com/v1/photos/search?term=" + city_name + "&consumer_key=" + CONSUMER_KEY 
+    response = None
+    # try:
+    file = urllib2.urlopen(url)
+    readfile = file.read()
+    # try: 
+    response = json.loads(readfile)
+    photos = response['photos']
+    print "PHOTO", photos
+
     for p in photos:
         photolist.append(p)
-    print photolist
+    # print photolist
+    print "PHOTOLIST", photolist
     return photolist
-        
-    #     thumbnail_url = p['image_url']
-        # fhpx_url = 'https://api.500px.com/v1/photos?feature=popular' 
-        
-      #   try:
-      #       fileio = urllib.urlopen(thumbnail_url)
-      #       im = StringIO(fileio.read())
-      #       # if you have PIL you can play with the image
-      #       #img = Image.open(im)
-      #       print '(%s,%s)' % (thumbnail_url,fhpx_url)
-      #   except Exception, e:
-		    # print 'Error in the following url[%s]:%s' % (thumbnail_url,e)
-		    # continue
-
 
 # photolist = [{}, {}, {}]
 def sfw_screen(photolist):
     sfw_px = []
     p_tuples = ()
-
     for photo in photolist:
     # screen out nsfw ones
       if photo['nsfw'] != True:
         #p_tuples = (rating, image_url)
         p_tuple = (photo['rating'],photo['image_url'])
-        print "p_tuple", p_tuple
+        # print "p_tuple", p_tuple
         sfw_px.append(p_tuple)
         # sfw_px becomes a list of (tuples)
-        print "sfw_screen", sfw_px
+        # print "sfw_screen", sfw_px
     sorted_px = sorted(sfw_px)
     return sorted_px
 
-    # return top 10 highest rated pictures by image_url 
-def top_10(sorted_px):
-  ### RENAME AS TOP IMAGES RATHER THAN TOP 10 ###
-    top_10 = sorted_px[0:10]
-    return top_10
+def top_px(sorted_px,n):
+  # return top 10 highest rated pictures by image_url 
+    top_list = sorted_px[0:n]
+    return top_list
 
-    # replace image_url "....2.jpg" as "....4.jpg"
 def top_url(top_10):
+  # replace image_url "....2.jpg" as "....4.jpg"
     updated_url_list = []
     original_url_dict = {}
     for top_tuple in top_10:
       original_url = top_tuple[1]
       updated_url_in_tuple = (top_tuple[0],original_url.replace("/2.jpg", "/4.jpg"))
       updated_url_list.append(updated_url_in_tuple)
+     
       original_url_dict[top_tuple[1]] = top_tuple[0]
-    print "UPDATED URL LIST", updated_url_list
-    print "Original URL Dictionary", original_url_dict
+    # print "Original URL Dictionary", original_url_dict
     return original_url_dict
 
-    # return rating, height and width for front end editing/collaging
 def front_end_output(original_url_dict,photolist):
+  # create a list of dictionary. each item in dictionary contains rating, height, width and image_url
     fe_output_list = []
     fe_output = {}
-    # dictionary of 
-    # rating = updated_url_list[0], height = , width and URL = updated_url_list[1]
     for k,v in original_url_dict.items():
       # for k in original_url_dict:
       # if original_url == photolist["image_url"] ???
       for photo in photolist:
-        if k == photo[u'image_url']:
-          print photo[u'height'], photo[u'width']
-          fe_output[u'image_url'] = k.replace("/2.jpg", "/4.jpg")
-          fe_output[u'rating'] = v
-          fe_output[u'height'] = photo[u'height']
-          fe_output[u'width'] = photo[u'width']
+        if k == photo['image_url']:
+          # print photo[u'height'], photo[u'width']
+          fe_output['image_url'] = k.replace("/2.jpg", "/4.jpg")
+          fe_output['rating'] = v
+          fe_output['height'] = photo['height']
+          fe_output['width'] = photo['width']
           ## add original page ##
-          fe_output_list.append(fe_output)
-      return fe_output_list
+          fe_output_list.append(fe_output) 
 
-
+    data_string = json.dumps(fe_output_list)
+    return data_string
 
 # u'http://pcdn.500px.net/9730333/51f0d05f78152fec3063686b93c068d3e25586ef/2.jpg': 98.4
 
