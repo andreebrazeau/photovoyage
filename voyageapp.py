@@ -16,16 +16,6 @@ def home():
     # return ""
     return render_template("home.html")
 
-# get city result from search 
-@app.route("/", methods=["GET"])
-def get_cities():
-	first_city = request.form['first']
-	# GET photos/search 
-
-    return render_template("city.html", city=first_city)
-
-
-
 @app.route("/", methods=["GET"])
 def get_cities():
 	second_city = request.form['second']
