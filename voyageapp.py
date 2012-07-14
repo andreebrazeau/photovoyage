@@ -1,16 +1,24 @@
-from flask import redirect, url_for, render_template, request
-from model import app, Task
-import model
+from fivehundred import *
+from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
+import os
+import sys
+
+#create our application! :) 
+app = Flask(__name__)
+app.config.from_object(__name__)
+app.config.from_envvar('FLASKR_SETTINGS', silent = True)
+# allow environment variable called FLASKR SETTINGS, 
+# not complain if no such env key is set
 
 @app.route("/")
 def home():
-    return_str = ""
-    tasks = Task.query.all()
-    return render_template("home.html", tasks=tasks)
+    # return ""
+    return render_template("home.html")
 
-
-@app.route("/add", methods=["GET"])
-def make_task():
+# get city result from search 
+@app.route("/", methods=["GET"])
+def get_cities():
+	
     return render_template("make_task.html")
 
 # @app.route("/add", methods=["POST"])
@@ -37,3 +45,7 @@ def make_task():
 # 	model.save_all()
 # 	print Task.query.get_all()
 # 	return render_template("success.html", new_task = new_task)
+
+
+if __name__ == "__main__":
+	app.run(debug=True)
