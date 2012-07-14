@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import sys
 import os
 import urllib
@@ -19,23 +21,23 @@ def main():
 # def getcities(city_string):
 
 def getpx(city_name):
-  photolist = []
+    photolist = []
 
-  url = "https://api.500px.com/v1/photos/search?term=" + city_name + "&consumer_key=" + CONSUMER_KEY 
-  response = None
-  # try:
-  file = urllib2.urlopen(url)
-  readfile = file.read()
-  # try: 
-  response = json.loads(readfile)
-  photolist = response['photos']
-  return photolist
+    url = "https://api.500px.com/v1/photos/search?term=" + city_name + "&consumer_key=" + CONSUMER_KEY 
+    response = None
+    # try:
+    file = urllib2.urlopen(url)
+    readfile = file.read()
+    # try: 
+    response = json.loads(readfile)
+    photos = response['photos']
+    # print "PHOTO", photos
 
-### Michizzle ###
-# def getsong(city_name):
-
-#   tracks = client.get('/tracks',q=city_name)
-#   for track 
+    for p in photos:
+        photolist.append(p)
+    # print photolist
+    # print "PHOTOLIST", photolist
+    return photolist
 
 # photolist = [{}, {}, {}]
 def sfw_screen(photolist):
@@ -81,7 +83,7 @@ def front_end_output(original_url_dict,photolist):
     if photo['image_url'] in original_url_dict:
       fe_output = {}
       # print photo[u'height'], photo[u'width']
-      fe_output['image_url'] = photo['image_url'].replace("/2.jpg", "/4.jpg")
+      fe_output['url'] = photo['image_url'].replace("/2.jpg", "/4.jpg")
       fe_output['height'] = photo['height']
       fe_output['width'] = photo['width']
       ## add original page ##

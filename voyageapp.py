@@ -15,20 +15,26 @@ app.config.from_envvar('FLASKR_SETTINGS', silent = True)
 def home():
     # return ""
     return render_template("home.html")
-
+@app.route("/city")
+def city_first():
+    name = request.args.get('first')
+    next = request.args.get('second')
+    last = request.args.get('third')
+    return do_city(name, next, last)
 @app.route("/city/<name>")
 def city(name):
+    next = request.args.get('next')
+    last = request.args.get('last')    
+    return do_city(name, next, last)
+    
+def do_city(name, next, last):
     pl = getpx(name)
     sfw = sfw_screen(pl)
     top_list = top_px(sfw,25)
     top_name = top_url(top_list)
-    fe = front_end_output(top_name,pl)
-
-    next = request.args.get('next')
+    fe = front_end_output(top_name,pl)    
     last = request.args.get('last')
     return render_template("city.html", json_data=fe, city=name, next=next, last=last)
-
-
 
 # @app.route("/add", methods=["POST"])
 # def save_task():

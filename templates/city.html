@@ -5,7 +5,8 @@
         <script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
         <script type="text/javascript" src="/static/js/collage.js"></script>        
         <script type="text/javascript">
-            var photos = {{json_data}};
+
+            var photos = {{ json_data|safe }};
         
             $(document).ready(function() {
                 var useFB = false;
@@ -41,7 +42,13 @@
                 collage.render();
             }
             function next() {
+                {% if next %}
                 window.location = "/city/{{next}}?last={{last}}";
+                {% elif last %}
+                window.location = "/city/{{last}}";                
+                {% else %}
+                window.location = "/";
+                {% endif %}
             }
             
         </script>
@@ -55,8 +62,10 @@
                     <button onclick="next()">
                         {% if next %}
                         On to {{next}}
-                        {% else %}
+                        {% elif last %}
                         Last stop: {{last}}
+                        {% else %}
+                        Back home!
                         {% endif %}
                     </button>
                 </td>
