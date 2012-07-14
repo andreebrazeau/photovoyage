@@ -2,6 +2,7 @@ from fivehundred import *
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 import os
 import sys
+import fetchphotos
 
 #create our application! :) 
 app = Flask(__name__)
@@ -18,8 +19,19 @@ def home():
 # get city result from search 
 @app.route("/", methods=["GET"])
 def get_cities():
-	
-    return render_template("make_task.html")
+	first_city = request.form['first']
+	# GET photos/search 
+
+    return render_template("city.html", city=first_city)
+
+
+
+@app.route("/", methods=["GET"])
+def get_cities():
+	second_city = request.form['second']
+	# GET photos/search 
+
+    return render_template("city_two.html")
 
 # @app.route("/add", methods=["POST"])
 # def save_task():
