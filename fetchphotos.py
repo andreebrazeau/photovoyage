@@ -5,7 +5,7 @@ import urllib2
 from StringIO import StringIO
 from fivehundred import *
 import json
-import soundcloud
+# import soundcloud
 
 CONSUMER_KEY = '7ok4JQfbUoVaXlcZXRM7soSG6TlC97XnLSZMiB0j'
 def main():
@@ -28,13 +28,7 @@ def getpx(city_name):
   readfile = file.read()
   # try: 
   response = json.loads(readfile)
-  photos = response['photos']
-  print "PHOTO", photos
-
-  for p in photos:
-      photolist.append(p)
-  # print photolist
-  print "PHOTOLIST", photolist
+  photolist = response['photos']
   return photolist
 
 ### Michizzle ###
@@ -80,21 +74,21 @@ def top_url(top_10):
 def front_end_output(original_url_dict,photolist):
   # create a list of dictionary. each item in dictionary contains rating, height, width and image_url
   fe_output_list = []
-  fe_output = {}
-  for k,v in original_url_dict.items():
-    # for k in original_url_dict:
-    # if original_url == photolist["image_url"] ???
-    for photo in photolist:
-      if k == photo['image_url']:
-        # print photo[u'height'], photo[u'width']
-        fe_output['image_url'] = k.replace("/2.jpg", "/4.jpg")
-        fe_output['rating'] = v
-        fe_output['height'] = photo['height']
-        fe_output['width'] = photo['width']
-        ## add original page ##
-        fe_output_list.append(fe_output) 
+
+  for photo in photolist:
+    print 'each photo', photo['image_url']
+
+    if photo['image_url'] in original_url_dict:
+      fe_output = {}
+      # print photo[u'height'], photo[u'width']
+      fe_output['image_url'] = photo['image_url'].replace("/2.jpg", "/4.jpg")
+      fe_output['height'] = photo['height']
+      fe_output['width'] = photo['width']
+      ## add original page ##
+      fe_output_list.append(fe_output) 
 
   data_string = json.dumps(fe_output_list)
+  print data_string
   return data_string
 
 # u'http://pcdn.500px.net/9730333/51f0d05f78152fec3063686b93c068d3e25586ef/2.jpg': 98.4
