@@ -1,12 +1,1 @@
-BeautifulSoup==3.2.1
-Django==1.2.7
 Flask==0.8
-Jinja2==2.6
-PyYAML==3.09
-Werkzeug==0.8.3
-beautifulsoup4==4.0.0b10
-distribute==0.6.24
-gdata==2.0.17
-nltk==2.0.1rc1
-uritemplate==0.5.1
-wsgiref==0.1.2
