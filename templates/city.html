@@ -99,7 +99,13 @@
                 collage.render();
             }
             function next() {
+                {% if next %}
                 window.location = "/city/{{next}}?last={{last}}";
+                {% elif last %}
+                window.location = "/city/{{last}}";                
+                {% else %}
+                window.location = "/";
+                {% endif %}
             }
             
         </script>
@@ -113,8 +119,10 @@
                     <button onclick="next()">
                         {% if next %}
                         On to {{next}}
-                        {% else %}
+                        {% elif last %}
                         Last stop: {{last}}
+                        {% else %}
+                        Back home!
                         {% endif %}
                     </button>
                 </td>
