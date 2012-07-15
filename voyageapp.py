@@ -2,7 +2,7 @@ from fivehundred import *
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 import os
 import sys
-import fetchphotos
+from fetchphotos import *
 
 #create our application! :) 
 app = Flask(__name__)
@@ -28,7 +28,13 @@ def city(name):
     return do_city(name, next, last)
     
 def do_city(name, next, last):
-    return render_template("city.html", city=name, next=next, last=last)    
+    pl = getpx(name)
+    sfw = sfw_screen(pl)
+    top_list = top_px(sfw,25)
+    top_name = top_url(top_list)
+    fe = front_end_output(top_name,pl)    
+    last = request.args.get('last')
+    return render_template("city.html", json_data=fe, city=name, next=next, last=last)
 
 # @app.route("/add", methods=["POST"])
 # def save_task():
