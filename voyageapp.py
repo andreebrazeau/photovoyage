@@ -35,32 +35,6 @@ def do_city(name, next, last):
     fe = front_end_output(top_name,pl)    
     return render_template("city.html", json_data=fe, city=name, next=next, last=last)
 
-# @app.route("/add", methods=["POST"])
-# def save_task():
-# 	task = request.form['task']
-# 	notes = request.form['notes']
-# 	t = Task(task,notes)
-# 	model.add(t)
-# 	model.save_all()
-# 	return render_template("success.html", task=task, notes=notes)
-
-# @app.route("/edit<task_id>", methods = ["GET"])
-# def edit_task(task_id):
-# 	task = Task.query.get(task_id)
-# 	return render_template("edit.html", title = task.title, notes = task.notes)
-
-# @app.route("/edit<task_id>", methods = ["POST"])
-# def save_edited_task(task_id):
-# 	new_task = request.form['task']
-# 	new_notes = request.form['notes']
-# 	t = model.Task.query.get(task_id)
-# 	t.title = new_task
-# 	t.notes = new_notes
-# 	model.save_all()
-# 	print Task.query.get_all()
-# 	return render_template("success.html", new_task = new_task)
-
-
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
