@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>PHOTOvoyage</title>
-    <link rel="stylesheet" type="text/css" href="static/css/voyage.css">
+    <title>PHOTOvoyage - {{city}}</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/voyage.css">
     <script type="text/javascript">var switchTo5x=true;</script>
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
     <script type="text/javascript" src="http://s.sharethis.com/loader.js"></script>
@@ -11,22 +11,31 @@
 <div id="all">
     <div id="header">
         <div id="logo">
-            <img src="static/img/photovoyage_logo_white.png" href="home" " alt="PHOTOvoyage">
+            <img src="/static/img/photovoyage_logo_white.png" href="home" alt="PHOTOvoyage" />
         </div>
     </div>
 
 <div id ="header_container">
     <div id = "city_header">
-        <h1 style="text-align: center">Welcome to {{city}}!</h1>
-        <button onclick="next()">
-            {% if next %}
-            On to {{next}}
-            {% elif last %}
-            Last stop: {{last}}
-            {% else %}
-            Back home!
-            {% endif %}
-        </button>
+        <table class="header" style="margin-bottom: 10px">
+            <tr>
+                <td class="endcap"></td>
+                <td style="text-align: center">
+                    <h1>Welcome to {{city}}!</h1>
+                </td>
+                <td class="endcap">
+                    <button onclick="next()">
+                        {% if next %}
+                        On to {{next}}
+                        {% elif last %}
+                        Last stop: {{last}}
+                        {% else %}
+                        Back home!
+                        {% endif %}
+                    </button>
+                </td>                    
+            </tr>
+        </table>
     </div>
 </div>
     <div id="main-content">
