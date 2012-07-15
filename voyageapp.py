@@ -14,13 +14,15 @@ app.config.from_envvar('FLASKR_SETTINGS', silent = True)
 @app.route("/")
 def home():
     # return ""
-    return render_template("base.html")
+    return render_template("home.html")
+
 @app.route("/city")
 def city_first():
     name = request.args.get('first')
     next = request.args.get('second')
     last = request.args.get('third')
     return do_city(name, next, last)
+
 @app.route("/city/<name>")
 def city(name):
     next = request.args.get('next')
