@@ -42,3 +42,17 @@ body {
 	width: 60%;
 	font-size: 150%;
 }
+
+.city {
+    background: black; 
+    color: white;
+}
+.city table.header {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.city table.header .endcap {
+    width: 200px;
+    text-align: right;
+}

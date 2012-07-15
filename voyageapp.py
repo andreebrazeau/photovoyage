@@ -16,12 +16,11 @@ def home():
     # return ""
     return render_template("home.html")
 
-@app.route("/", methods=["GET"])
-def get_cities():
-	second_city = request.form['second']
-	# GET photos/search 
-
-    return render_template("city_two.html")
+@app.route("/city/<name>")
+def city(name):
+    next = request.args.get('next')
+    last = request.args.get('last')
+    return render_template("city.html", city=name, next=next, last=last)
 
 # @app.route("/add", methods=["POST"])
 # def save_task():
