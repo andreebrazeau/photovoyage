@@ -1,8 +1,21 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PHOTOvoyage</title>
+    <link rel="stylesheet" type="text/css" href="static/css/voyage.css">
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript" src="http://s.sharethis.com/loader.js"></script>
+</head>
+<body class = body_city>
+<div id="all">
+    <div id="header">
+        <div id="logo">
+            <img src="static/img/photovoyage_logo_white.png" href="home" " alt="PHOTOvoyage">
+        </div>
+    </div>
 
-{% block content %}
-
-    <div id ="header_container">
+<div id ="header_container">
     <div id = "city_header">
         <h1 style="text-align: center">Welcome to {{city}}!</h1>
         <button onclick="next()">
@@ -68,5 +81,13 @@
             
         </script>
     </div>
-
-{% endblock %}
+<div id="footer">
+        </br>
+    </div>
+</div>
+<script>
+var options={ "publisher": "ur-770d81cd-1c20-a0a6-1785-5897bbde9585", "logo": { "visible": false, "url": "", "img": "http://sd.sharethis.com/disc/images/demo_logo.png", "height": 45}, "ad": { "visible": false, "openDelay": "5", "closeDelay": "0"}, "livestream": { "domain": "", "type": "sharethis", "customColors": { "widgetBackgroundColor": "#FFFFFF", "articleLinkColor": "#006fbb"}}, "ticker": { "visible": false, "domain": "", "title": "", "type": "sharethis", "customColors": { "widgetBackgroundColor": "#9d9d9d", "articleLinkColor": "#00487f"}}, "facebook": { "visible": false, "profile": "sharethis"}, "fblike": { "visible": false, "url": ""}, "twitter": { "visible": false, "user": "sharethis"}, "twfollow": { "visible": false, "url": "http://www.twitter.com/sharethis"}, "custom": [{ "visible": false, "title": "Custom 1", "url": "", "img": "", "popup": false, "popupCustom": { "width": 300, "height": 250}}, { "visible": false, "title": "Custom 2", "url": "", "img": "", "popup": false, "popupCustom": { "width": 300, "height": 250}}, { "visible": false, "title": "Custom 3", "url": "", "img": "", "popup": false, "popupCustom": { "width": 300, "height": 250}}], "chicklets": { "items": ["facebook", "twitter"]}, "shadow": "gloss", "background": "#000000", "color": "#FFFFFF", "arrowStyle": "light"};
+var st_bar_widget = new sharethis.widgets.sharebar(options);
+</script>
+</body>
+</html>

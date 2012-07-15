@@ -14,7 +14,7 @@ app.config.from_envvar('FLASKR_SETTINGS', silent = True)
 @app.route("/")
 def home():
     # return ""
-    return render_template("base.html")
+    return render_template("home.html")
 @app.route("/city")
 def city_first():
     name = request.args.get('first')
