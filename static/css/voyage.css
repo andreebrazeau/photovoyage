@@ -1,5 +1,18 @@
+@font-face {
+    font-family: 'MergeLight';
+    src: url('merge_light-webfont.eot');
+    src: url('merge_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('merge_light-webfont.woff') format('woff'),
+         url('merge_light-webfont.ttf') format('truetype'),
+         url('merge_light-webfont.svg#MergeLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
 body {
-	font-family: "Helvetica Neue Ultra Light", Helvetica, Arial, sans-serif;
+	font-family: "MergeLight", Helvetica, Arial, sans-serif;
 }
 #all {
 	width: 100%;
@@ -19,6 +32,11 @@ body {
 #footer {
 	
 }
+
+h1 {
+	letter-spacing:3px;
+}
+
 #city_select {
 	width: 60%;
 	margin: 0 20%;
@@ -41,6 +59,7 @@ body {
 .label {
 	width: 60%;
 	font-size: 150%;
+	letter-spacing:-2px;
 }
 
 .city {
