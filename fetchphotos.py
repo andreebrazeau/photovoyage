@@ -60,11 +60,11 @@ def top_px(sorted_px,n):
   top_list = sorted_px[0:n]
   return top_list
 
-def top_url(top_10):
+def top_url(top_pics):
   # replace image_url "....2.jpg" as "....4.jpg"
   updated_url_list = []
   original_url_dict = {}
-  for top_tuple in top_10:
+  for top_tuple in top_pics:
     original_url = top_tuple[1]
     updated_url_in_tuple = (top_tuple[0],original_url.replace("/2.jpg", "/4.jpg"))
     updated_url_list.append(updated_url_in_tuple)

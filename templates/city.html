@@ -1,7 +1,22 @@
-<html>
-    <head>
-        <title>PHOTOvoyage - {{city}}</title>
-    	<link rel="stylesheet" type="text/css" href="/static/css/voyage.css">    	
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div id ="header_container">
+    <div id = "city_header">
+        <h1 style="text-align: center">Welcome to {{city}}!</h1>
+        <button onclick="next()">
+            {% if next %}
+            On to {{next}}
+            {% elif last %}
+            Last stop: {{last}}
+            {% else %}
+            Back home!
+            {% endif %}
+        </button>
+    </div>
+</div>
+    <div id="main-content">
         <script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
         <script type="text/javascript" src="/static/js/collage.js"></script>        
         <script type="text/javascript">
@@ -52,25 +67,6 @@
             }
             
         </script>
-    </head>
-    <body class="city">
-        <table class="header">
-            <tr>
-                <td class="endcap"></td>
-                <td><h1 style="text-align: center">Welcome to {{city}}!</h1></td>
-                <td class="endcap">
-                    <button onclick="next()">
-                        {% if next %}
-                        On to {{next}}
-                        {% elif last %}
-                        Last stop: {{last}}
-                        {% else %}
-                        Back home!
-                        {% endif %}
-                    </button>
-                </td>
-            </tr>
-        </table>
-        <div id="main-content"></div>
-    </body>
-</html>
+    </div>
+
+{% endblock %}
