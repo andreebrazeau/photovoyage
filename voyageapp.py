@@ -33,7 +33,6 @@ def do_city(name, next, last):
     top_list = top_px(sfw,25)
     top_name = top_url(top_list)
     fe = front_end_output(top_name,pl)    
-    last = request.args.get('last')
     return render_template("city.html", json_data=fe, city=name, next=next, last=last)
 
 # @app.route("/add", methods=["POST"])
