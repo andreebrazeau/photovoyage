@@ -6,136 +6,157 @@
 	<div id="city_select">
 		<h1>Your Voyage</h1>
 		<form action="/city">
-			<p class="label">first stop</p>
-			<select name="first" style="width: 60%; " class="centered">
-				<option value="New York City">New York City</option>
-				<option value="Los Angeles">Los Angeles</option>
-				<option value="Berlin">Berlin</option>
-				<option value="London">London</option>
-				<option value="Beijing">Beijing</option>
-				<option value="Houston">Houston</option>
-				<option value="Mexico City">Mexico City</option>
-				<option value="Tokyo">Tokyo</option>
-				<option value="Amsterdam">Amsterdam</option>
-				<option value="Melbourne">Melbourne</option>
-				<option value="Hong Kong">Hong Kong</option>
-				<option value="Moscow">Moscow</option>
-				<option value="Bangladesh">Bangladesh</option>
-				<option value="San Francisco" selected="selected">San Francisco</option>
-				<option value="San Salvador">San Salvador</option>
-				<option value="Johannesburg">Johannesburg</option>
-				<option value="Rio de Janeiro">Rio de Janeiro</option>
-				<option value="Seoul">Seoul</option>
-				<option value="Istanbul">Istanbul</option>
-				<option value="Manila">Manila</option>
-				<option value="Buenos Aires">Buenos Aires</option>
-				<option value="Cairo">Cairo</option>
-				<option value="Bangkok">Bangkok</option>
-				<option value="Madrid">Madrid</option>
-				<option value="Auckland">Auckland</option>
-				<option value="Prague">Prague</option>
-				<option value="Bali">Bali</option>
-				<option value="Santiago">Santiago</option>
-				<option value="Kuala Lumpur">Kuala Lumpur</option>
-				<option value="Tunis">Tunis</option>
-				<option value="Mykonos">Mykonos</option>
-				<option value="Havana">Havana</option>
-				<option value="Madagascar">Madagascar</option>
-				<option value="Cape Town">Cape Town</option>
-				<option value="Montreal">Montreal</option>
-				<option value="Quebec City">Quebec City</option>
-				<option value="Paris">Paris</option>
-				<option value="Casablanca">Casablanca</option>
-				<option value="Reykjavik">Reykjavik</option>
-				<option value="Budapest">Budapest</option>
-			</select>
-			<p class="label">next stop</p>
-			<select name="second" style="width: 60%; " class="centered">
-				<option value="New York City">New York City</option>
-				<option value="Los Angeles">Los Angeles</option>
-				<option value="Berlin">Berlin</option>
-				<option value="London">London</option>
-				<option value="Beijing">Beijing</option>
-				<option value="Houston">Houston</option>
-				<option value="Mexico City">Mexico City</option>
-				<option value="Tokyo">Tokyo</option>
-				<option value="Amsterdam">Amsterdam</option>
-				<option value="Melbourne">Melbourne</option>
-				<option value="Hong Kong">Hong Kong</option>
-				<option value="Moscow">Moscow</option>
-				<option value="Bangladesh">Bangladesh</option>
-				<option value="San Francisco">San Francisco</option>
-				<option value="San Salvador">San Salvador</option>
-				<option value="Johannesburg">Johannesburg</option>
-				<option value="Rio de Janeiro">Rio de Janeiro</option>
-				<option value="Seoul">Seoul</option>
-				<option value="Istanbul">Istanbul</option>
-				<option value="Manila">Manila</option>
-				<option value="Buenos Aires" selected="selected">Buenos Aires</option>
-				<option value="Cairo">Cairo</option>
-				<option value="Bangkok">Bangkok</option>
-				<option value="Madrid">Madrid</option>
-				<option value="Auckland">Auckland</option>
-				<option value="Prague">Prague</option>
-				<option value="Bali">Bali</option>
-				<option value="Santiago">Santiago</option>
-				<option value="Kuala Lumpur">Kuala Lumpur</option>
-				<option value="Tunis">Tunis</option>
-				<option value="Mykonos">Mykonos</option>
-				<option value="Havana">Havana</option>
-				<option value="Madagascar">Madagascar</option>
-				<option value="Cape Town">Cape Town</option>
-				<option value="Montreal">Montreal</option>
-				<option value="Quebec City">Quebec City</option>
-				<option value="Paris">Paris</option>
-				<option value="Casablanca">Casablanca</option>
-				<option value="Reykjavik">Reykjavik</option>
-				<option value="Budapest">Budapest</option>
-			</select>
-			<p class="label">last stop</p>
-			<select name="third" style="width: 60%; " class="centered">
-				<option value="New York City">New York City</option>
-				<option value="Los Angeles">Los Angeles</option>
-				<option value="Berlin">Berlin</option>
-				<option value="London">London</option>
-				<option value="Beijing">Beijing</option>
-				<option value="Houston">Houston</option>
-				<option value="Mexico City">Mexico City</option>
-				<option value="Tokyo">Tokyo</option>
-				<option value="Amsterdam">Amsterdam</option>
-				<option value="Melbourne">Melbourne</option>
-				<option value="Hong Kong">Hong Kong</option>
-				<option value="Moscow">Moscow</option>
-				<option value="Bangladesh">Bangladesh</option>
-				<option value="San Francisco">San Francisco</option>
-				<option value="San Salvador">San Salvador</option>
-				<option value="Johannesburg">Johannesburg</option>
-				<option value="Rio de Janeiro">Rio de Janeiro</option>
-				<option value="Seoul">Seoul</option>
-				<option value="Istanbul">Istanbul</option>
-				<option value="Manila">Manila</option>
-				<option value="Buenos Aires">Buenos Aires</option>
-				<option value="Cairo">Cairo</option>
-				<option value="Bangkok">Bangkok</option>
-				<option value="Madrid">Madrid</option>
-				<option value="Auckland">Auckland</option>
-				<option value="Prague">Prague</option>
-				<option value="Bali">Bali</option>
-				<option value="Santiago">Santiago</option>
-				<option value="Kuala Lumpur">Kuala Lumpur</option>
-				<option value="Tunis">Tunis</option>
-				<option value="Mykonos">Mykonos</option>
-				<option value="Havana">Havana</option>
-				<option value="Madagascar">Madagascar</option>
-				<option value="Cape Town">Cape Town</option>
-				<option value="Montreal">Montreal</option>
-				<option value="Quebec City">Quebec City</option>
-				<option value="Paris">Paris</option>
-				<option value="Casablanca">Casablanca</option>
-				<option value="Reykjavik">Reykjavik</option>
-				<option value="Budapest" selected="selected">Budapest</option>
-			</select>
+			<table class= 'drop_down'>
+				<tr>
+					<td>
+						<p class="label">first stop</p>
+					</td>
+					<td class='large_td'>
+						<select name="first" style="width: 60%; " class="centered">
+						<option value="New York City">New York City</option>
+						<option value="Los Angeles">Los Angeles</option>
+						<option value="Berlin">Berlin</option>
+						<option value="London">London</option>
+						<option value="Beijing">Beijing</option>
+						<option value="Houston">Houston</option>
+						<option value="Mexico City">Mexico City</option>
+						<option value="Tokyo">Tokyo</option>
+						<option value="Amsterdam">Amsterdam</option>
+						<option value="Melbourne">Melbourne</option>
+						<option value="Hong Kong">Hong Kong</option>
+						<option value="Moscow">Moscow</option>
+						<option value="Bangladesh">Bangladesh</option>
+						<option value="San Francisco" selected="selected">San Francisco</option>
+						<option value="San Salvador">San Salvador</option>
+						<option value="Johannesburg">Johannesburg</option>
+						<option value="Rio de Janeiro">Rio de Janeiro</option>
+						<option value="Seoul">Seoul</option>
+						<option value="Istanbul">Istanbul</option>
+						<option value="Manila">Manila</option>
+						<option value="Buenos Aires">Buenos Aires</option>
+						<option value="Cairo">Cairo</option>
+						<option value="Bangkok">Bangkok</option>
+						<option value="Madrid">Madrid</option>
+						<option value="Auckland">Auckland</option>
+						<option value="Prague">Prague</option>
+						<option value="Bali">Bali</option>
+						<option value="Santiago">Santiago</option>
+						<option value="Kuala Lumpur">Kuala Lumpur</option>
+						<option value="Tunis">Tunis</option>
+						<option value="Mykonos">Mykonos</option>
+						<option value="Havana">Havana</option>
+						<option value="Madagascar">Madagascar</option>
+						<option value="Cape Town">Cape Town</option>
+						<option value="Montreal">Montreal</option>
+						<option value="Quebec City">Quebec City</option>
+						<option value="Paris">Paris</option>
+						<option value="Casablanca">Casablanca</option>
+						<option value="Reykjavik">Reykjavik</option>
+						<option value="Budapest">Budapest</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p class="label">next stop</p>
+					</td>
+					<td class='large_td'>
+						<select name="second" style="width: 60%; " class="centered">
+							<option value="New York City">New York City</option>
+							<option value="Los Angeles">Los Angeles</option>
+							<option value="Berlin">Berlin</option>
+							<option value="London">London</option>
+							<option value="Beijing">Beijing</option>
+							<option value="Houston">Houston</option>
+							<option value="Mexico City">Mexico City</option>
+							<option value="Tokyo">Tokyo</option>
+							<option value="Amsterdam">Amsterdam</option>
+							<option value="Melbourne">Melbourne</option>
+							<option value="Hong Kong">Hong Kong</option>
+							<option value="Moscow">Moscow</option>
+							<option value="Bangladesh">Bangladesh</option>
+							<option value="San Francisco">San Francisco</option>
+							<option value="San Salvador">San Salvador</option>
+							<option value="Johannesburg">Johannesburg</option>
+							<option value="Rio de Janeiro">Rio de Janeiro</option>
+							<option value="Seoul">Seoul</option>
+							<option value="Istanbul">Istanbul</option>
+							<option value="Manila">Manila</option>
+							<option value="Buenos Aires" selected="selected">Buenos Aires</option>
+							<option value="Cairo">Cairo</option>
+							<option value="Bangkok">Bangkok</option>
+							<option value="Madrid">Madrid</option>
+							<option value="Auckland">Auckland</option>
+							<option value="Prague">Prague</option>
+							<option value="Bali">Bali</option>
+							<option value="Santiago">Santiago</option>
+							<option value="Kuala Lumpur">Kuala Lumpur</option>
+							<option value="Tunis">Tunis</option>
+							<option value="Mykonos">Mykonos</option>
+							<option value="Havana">Havana</option>
+							<option value="Madagascar">Madagascar</option>
+							<option value="Cape Town">Cape Town</option>
+							<option value="Montreal">Montreal</option>
+							<option value="Quebec City">Quebec City</option>
+							<option value="Paris">Paris</option>
+							<option value="Casablanca">Casablanca</option>
+							<option value="Reykjavik">Reykjavik</option>
+							<option value="Budapest">Budapest</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p class="label">last stop</p>
+					</td>
+					<td class='large_td'>
+						<select name="third" style="width: 60%; " class="centered">
+							<option value="New York City">New York City</option>
+							<option value="Los Angeles">Los Angeles</option>
+							<option value="Berlin">Berlin</option>
+							<option value="London">London</option>
+							<option value="Beijing">Beijing</option>
+							<option value="Houston">Houston</option>
+							<option value="Mexico City">Mexico City</option>
+							<option value="Tokyo">Tokyo</option>
+							<option value="Amsterdam">Amsterdam</option>
+							<option value="Melbourne">Melbourne</option>
+							<option value="Hong Kong">Hong Kong</option>
+							<option value="Moscow">Moscow</option>
+							<option value="Bangladesh">Bangladesh</option>
+							<option value="San Francisco">San Francisco</option>
+							<option value="San Salvador">San Salvador</option>
+							<option value="Johannesburg">Johannesburg</option>
+							<option value="Rio de Janeiro">Rio de Janeiro</option>
+							<option value="Seoul">Seoul</option>
+							<option value="Istanbul">Istanbul</option>
+							<option value="Manila">Manila</option>
+							<option value="Buenos Aires">Buenos Aires</option>
+							<option value="Cairo">Cairo</option>
+							<option value="Bangkok">Bangkok</option>
+							<option value="Madrid">Madrid</option>
+							<option value="Auckland">Auckland</option>
+							<option value="Prague">Prague</option>
+							<option value="Bali">Bali</option>
+							<option value="Santiago">Santiago</option>
+							<option value="Kuala Lumpur">Kuala Lumpur</option>
+							<option value="Tunis">Tunis</option>
+							<option value="Mykonos">Mykonos</option>
+							<option value="Havana">Havana</option>
+							<option value="Madagascar">Madagascar</option>
+							<option value="Cape Town">Cape Town</option>
+							<option value="Montreal">Montreal</option>
+							<option value="Quebec City">Quebec City</option>
+							<option value="Paris">Paris</option>
+							<option value="Casablanca">Casablanca</option>
+							<option value="Reykjavik">Reykjavik</option>
+							<option value="Budapest" selected="selected">Budapest</option>
+						</select>
+					</td>
+				</tr>
+			</table>
 			<p>
+
 				<input type="Submit" value="Go" class="button">	
 			</p>		
 		</form>
