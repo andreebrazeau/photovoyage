@@ -84,7 +84,7 @@ def front_end_output(original_url_dict,photolist):
       fe_output['url'] = photo['image_url'].replace("/2.jpg", "/4.jpg")
       fe_output['height'] = photo['height']
       fe_output['width'] = photo['width']
-      fe_output['link_URL'] = "http://www.500px.com/photo/"+str(photo['id'])
+      fe_output['linkUrl'] = "http://www.500px.com/photo/"+str(photo['id'])
       ## add original page ##
       fe_output_list.append(fe_output) 
 

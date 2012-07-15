@@ -153,9 +153,16 @@ var Collage = Class.extend({
             var photo = rowPhotos[i];
             var finalWidth = this.getScaledWidth(photo) * ratio;
             var finalHeight = this._targetHeight * ratio;
-            
-            str += '<div style="position: relative; display: inline-block; width: ' + finalWidth + 'px; height: ' + finalHeight + 'px;"><img src="' + photo.url + '" style="clip: rect(' + this._clipSize +'px ' 
-                + (finalWidth - this._clipSize) + 'px ' + (finalHeight - this._clipSize) + 'px ' + this._clipSize +'px); width: ' + finalWidth + 'px; height: ' + finalHeight + 'px; position: absolute;"/></div>';
+            str += '<div style="position: relative; display: inline-block; width: ' + finalWidth + 'px; height: ' + finalHeight + 'px;">'
+            if (photo.linkUrl) {
+                str += '<a href="' + photo.linkUrl + '" target="_blank">';
+            }
+            str += '<img src="' + photo.url + '" style="clip: rect(' + this._clipSize +'px ' 
+                + (finalWidth - this._clipSize) + 'px ' + (finalHeight - this._clipSize) + 'px ' + this._clipSize +'px); width: ' + finalWidth + 'px; height: ' + finalHeight + 'px; position: absolute;"/>'
+            if (photo.linkUrl) {
+                str += '</a>';
+            }
+            str += '</div>';
         }
         return str;        
     }    
