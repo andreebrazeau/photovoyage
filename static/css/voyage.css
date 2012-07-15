@@ -65,27 +65,22 @@ h1 {
 	display:block;
 }
 
-.city {
+.body_city {
     background: black; 
     color: white;
 }
-.city table.header {
+.body_city table.header {
     table-layout: fixed;
     width: 100%;
 }
 
-.city table.header .endcap {
+.body_city table.header .endcap {
     width: 200px;
     text-align: right;
 }
 
 #header {
 	height: 100px;
-}
-#city_header {
-	width: 550px;
-	margin-left:auto;
-	margin-right:auto;
 }
 #city_header h1, #city_header button {
 	display: inline;
