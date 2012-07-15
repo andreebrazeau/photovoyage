@@ -3,17 +3,33 @@
 <head>
 	<title>PHOTOvoyage</title>
 	<link rel="stylesheet" type="text/css" href="voyage.css">
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
 <div id="all">
 	<div id="header">
 		<div id="logo">
 			<img src="photovoyage_logo.png" href="home" style="width: 100%; " alt="PHOTOvoyage">
 		</div>
 		<div id="external_buttons">
-			<img src="" href="" target="_blank" alt="Facebook">
-			<img src="" href="" target="_blank" alt="Google Plus">
-			<img src="" href="" target="_blank" alt="Twitter">
+			<div class="fb-like" data-href="http://www.hackbrightacademy.com/" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"></div>
+			<g:plusone size="medium"></g:plusone>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="twitterapi" data-lang="en">Tweet</a>
 		</div>
 	</div>
 	<div class="main">
